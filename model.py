@@ -4,6 +4,8 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras import backend as K
 K.clear_session()
 
+def model(labels):
+    
 labels = ["yes", "no", "up", "down", "left", "right", 
           "on", "off", "stop", "go"]
 

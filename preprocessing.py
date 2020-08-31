@@ -6,6 +6,7 @@ import warnings
 from sklearn.preprocessing import LabelEncoder
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
+import pandas as pd
 warnings.filterwarnings("ignore")
 
 labels = ["yes", "no", "up", "down", "left", "right", 
@@ -30,6 +31,8 @@ y = np_utils.to_categorical(y, num_classes=len(labels))
 # Reshape the 2D array to 3D array since the input to the 
 # Conv1D must be a 3D array
 all_wave = np.array(all_wave).reshape(-1, 8000, 1)
+
+
 # Split into train and validation set
 x_tr, x_val, y_tr, y_val = train_test_split(np.array(all_wave), np.array(y),
                                             stratify=y, test_size=0.2,
